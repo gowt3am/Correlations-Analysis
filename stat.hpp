@@ -1,7 +1,13 @@
-void SwapNum(int *, int *);
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-int GetData(int [], int);
-int GetData(int [], int [], int [], int);
+void SwapNum(int *, int *);
+char DispMenu(void);
+
+int GetData(int []);
+int GetData(int [], int [], int []);
 
 void PrintData(int [], int);
 void PrintData(int [], int [], int [], int);
@@ -18,5 +24,5 @@ float Median(int [], int [], int [], int);
 float Mode(int [], int);
 float Mode(int [], int [], int [], int);
 
-float Std_Dev_Var(int [], int);                    //Will Return only Variance Value although it calculates and prints variance, standard deviation and coefficient of variance
-float Std_Dev_Var(int [], int [], int [], int);
+float Variance(int [], int);
+float Variance(int [], int [], int [], int);

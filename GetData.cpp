@@ -1,13 +1,12 @@
 /*
     1 - Function to swap variables
+    1 - Function for Menu Display and get option
     2 - Overloaded Functions to accept data from user
     If Argument is a single array, it is used to accept Ungrouped data
     If Argument is 3 Arrays, it is used to accept lower limit, upper limit and frequency of different intervals
     Function returns an int, which is the number of elements/intervals accepted from user
 */
 
-#include <iostream>
-#include <stdio.h>
 #include "stat.hpp"
 
 void SwapNum(int *x, int *y)
@@ -17,7 +16,25 @@ void SwapNum(int *x, int *y)
     *x = *x - *y;
 }
 
-int GetData(int D[])    //Ungrouped Data Array as Argument
+void DispMenu(void)
+{
+        char ch;
+        system("cls");
+        printf("\n\t\t Main Menu\n");
+        printf("\n 1. Print The Data");
+        printf("\n 2. Print The Mean of Data");
+        printf("\n 3. Print The Median of Data");
+        printf("\n 4. Print The Mode of Data");
+        printf("\n 5. Print The Variance of Data");
+        printf("\n 6. Print The Standard Deviation of Data");
+        printf("\n 7. Print The Coefficient of Standard Deviation");
+        printf("\n 8. Print All Data and All Central Tendencies");
+        printf("\n\n Enter your choice(0 to quit): ");
+        scanf(ch);
+        return ch;
+}
+
+int GetData(int D[])         //Ungrouped Data Array as Argument
 {
     system("cls");           //To clear the Output Screen
     int N;
@@ -43,7 +60,6 @@ int GetData(int D[])    //Ungrouped Data Array as Argument
     }
 
     PrintData(D,N);            //Printing the Final Data
-    system("pause");           //To show output and wait for user interrupt
     return N;
 }
 
@@ -75,6 +91,5 @@ int GetData(int xl[], int xu[], int freq[])          //Grouped Data Intervals an
     }
 
     PrintData(xu,xl,freq,N);
-    system("pause");           //To show output and wait for user interrupt
     return N;
 }

@@ -6,31 +6,28 @@
     Function does not return anything
 */
 
-#include <iostream>
-#include <stdio.h>
-#include <math.h>
 #include "stat.hpp"
 
-void PrintData(int D, int N)            //Ungrouped Data and number of elements as arguments
+void PrintData(int D[], int N)            //Ungrouped Data and number of elements as arguments
 {
     system("cls");           //To clear the Output Screen
     printf("\n\t\t Data Elements\n");
     for(int i = 0; i<N; i++)
         printf("%d\t",D[i]);
     printf("\n");
-    system("pause");           //To show output and wait for user interrupt
+    system("pause");         //To show output and wait for user interrupt
 }
 
 void PrintData(int xl[], int xu[], int freq[], int N)          //Grouped Data Intervals,Frequency and number of elements as arguments
 {
     system("cls");           //To clear the Output Screen
     printf("\n \t \t Data Table\n");
-    printf("Lower Limit \t Upper Limit \t Frequency")
+    printf("Lower Limit \t Upper Limit \t Frequency");
     for(int i = 0; i<N; i++)
     {
         printf("%d \t",xl[i]);
         printf("%d \t",xu[i]);
-        printf("%d \n",freq[i])
+        printf("%d \n",freq[i]);
     }
     system("pause");           //To show output and wait for user interrupt
 }
@@ -42,30 +39,42 @@ void PrintAllData(int D[], int N)          //Ungrouped Data and number of elemen
     for(int i = 0; i<N; i++)
         printf("%d\t",D[i]);
 
-    Mean(D,N);               // This will calculate and print the Mean of Data
-    Median(D,N);             // This will calculate and print the Median of Data
-    Mode(D,N);               // This will calculate and print the Mode of Data
-    Std_Dev_Var(D,N);        // This will calculate and print the Variance, Standard Deviation and Coefficient of Variance of Data
-
-    system("pause");           //To show output and wait for user interrupt
+    float mean = Mean(D,N);              // This will calculate and print the Mean of Data
+    printf("\nThe Mean of given data is %f",mean);
+    float median = Median(D,N);          // This will calculate and print the Median of Data
+    printf("\nThe Median of given data is %f",median);
+    float mode = Mode(D,N);              // This will calculate and print the Mode of Data
+    printf("\nThe Mode of given data is %f",mode);
+    float var = Variance(D,N);        // This will calculate and print the Variance, Standard Deviation and Coefficient of Variance of Data
+    float std_dev = sqrt(var);
+    printf("\nThe Variance of given data is %f",var);
+    printf("\nThe Standard Deviation of given data is %f",std_dev);
+    printf("\nThe Coefficient of Variance is %f",(std_dev/mean)*100);
+    system("pause");                     //To show output and wait for user interrupt
 }
 
 void PrintAllData(int xl[], int xu[], int freq[], int N)          //Grouped Data Intervals,Frequency and number of elements as arguments
 {
     system("cls");           //To clear the Output Screen
     printf("\n \t \t Data Table\n");
-    printf("Lower Limit \t Upper Limit \t Frequency")
+    printf("Lower Limit \t Upper Limit \t Frequency");
     for(int i = 0; i<N; i++)
     {
         printf("%d \t",xl[i]);
         printf("%d \t",xu[i]);
-        printf("%d \n",freq[i])
+        printf("%d \n",freq[i]);
     }
 
-    Mean(xl,xu,freq,N);               // This will calculate and print the Mean of Data
-    Median(xl,xu,freq,N);             // This will calculate and print the Median of Data
-    Mode(xl,xu,freq,N);               // This will calculate and print the Mode of Data
-    Std_Dev_Var(xl,xu,freq,N);        // This will calculate and print the Variance, Standard Deviation and Coefficient of Variance of Data
-
+    float mean = Mean(xl,xu,freq,N);              // This will calculate and print the Mean of Data
+    printf("\nThe Mean of given data is %f",mean);
+    float median = Median(xl,xu,freq,N);          // This will calculate and print the Median of Data
+    printf("\nThe Median of given data is %f",median);
+    float mode = Mode(xl,xu,freq,N);              // This will calculate and print the Mode of Data
+    printf("\nThe Mode of given data is %f",mode);
+    float var = Variance(xl,xu,freq,N);        // This will calculate and print the Variance, Standard Deviation and Coefficient of Variance of Data
+    float std_dev = sqrt(var);
+    printf("\nThe Variance of given data is %f",var);
+    printf("\nThe Standard Deviation of given data is %f",std_dev);
+    printf("\nThe Coefficient of Variance is %f",(std_dev/mean)*100);
     system("pause");           //To show output and wait for user interrupt
 }
