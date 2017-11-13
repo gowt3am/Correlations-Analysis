@@ -1,10 +1,11 @@
 #include <iostream>
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h>    //For system commands
 #include <math.h>
+#include <process.h>   //For exit commands
 
 void SwapNum(int *, int *);
-char DispMenu(void);
+int DispMenu(void);
 
 int GetData(int []);
 int GetData(int [], int [], int []);
@@ -24,5 +25,5 @@ float Median(int [], int [], int [], int);
 float Mode(int [], int);
 float Mode(int [], int [], int [], int);
 
-float Variance(int [], int);
-float Variance(int [], int [], int [], int);
+float Variance(int [], int);                   //Returns only Variance Value, but calculations can be done to get
+float Variance(int [], int [], int [], int);   //Standard Deviation, Coefficient of Standard Deviation

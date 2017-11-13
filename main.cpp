@@ -6,10 +6,6 @@
     Exits the loop when user enters "0"
 */
 
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 #include "stat.hpp"
 
 int main()
@@ -17,7 +13,7 @@ int main()
     system("cls");
     char type, ch;
     float var, mean;
-    int D[32001],xl[32001],xu[32001],freq[32001], N;
+    int D[32001],xl[32001],xu[32001],freq[32001],N;
     printf("What type of data do you want to deal with?(U for Ungrouped & G for Grouped)");
     scanf("%c",&type);
     switch(type)
@@ -34,28 +30,29 @@ int main()
                 {
                     case 1: PrintData(D,N);
                             break;
-                    case 2: printf("\n\n The Mean of given data is %f",mean);
+                    case 2: printf("\n\n The Mean of given data is %f\n",mean);
                             system("pause");
                             break;
-                    case 3: printf("\n\n The Median of given data is %f",Median(D,N));
+                    case 3: printf("\n\n The Median of given data is %f\n",Median(D,N));
                             system("pause");
                             break;
-                    case 4: printf("\n\n The Mode of given data is %f",Mode(D,N));
+                    case 4: printf("\n\n The Mode of given data is %f\n",Mode(D,N));
                             system("pause");
                             break;
-                    case 5: printf("\n\n The Variance of given data is %f",var);
+                    case 5: printf("\n\n The Variance of given data is %f\n",var);
                             system("pause");
                             break;
-                    case 6: printf("\n\n The Standard Deviation of given data is %f",sqrt(var));
+                    case 6: printf("\n\n The Standard Deviation of given data is %f\n",sqrt(var));
                             system("pause");
                             break;
-                    case 7: printf("\n\n The Coefficient of Standard Variance is %f", (sqrt(var)/mean * 100));
+                    case 7: printf("\n\n The Coefficient of Standard Variance is %f\n", (sqrt(var)/mean * 100));
                             system("pause");
                             break;
                     case 8: PrintAllData(D,N);
                             break;
-                    case 0: break;
-                    default: printf("\n\n Incorrect Option! Retry!");
+                    case 0: exit(0);
+                    default: printf("\n\n Incorrect Option! Retry!\n");
+                             system("pause");
                              break;
                 }
             }while(ch != 0);
@@ -73,35 +70,38 @@ int main()
                  {
                     case 1: PrintData(xl,xu,freq,N);
                             break;
-                    case 2: printf("\n\n The Mean of given data is %f",mean);
+                    case 2: printf("\n\n The Mean of given data is %f\n",mean);
                             system("pause");
                             break;
-                    case 3: printf("\n\n The Median of given data is %f",Median(xl,xu,freq,N));
+                    case 3: printf("\n\n The Median of given data is %f\n",Median(xl,xu,freq,N));
                             system("pause");
                             break;
-                    case 4: printf("\n\n The Mode of given data is %f",Mode(xl,xu,freq,N));
+                    case 4: printf("\n\n The Mode of given data is %f\n",Mode(xl,xu,freq,N));
                             system("pause");
                             break;
-                    case 5: printf("\n\n The Variance of given data is %f",var);
+                    case 5: printf("\n\n The Variance of given data is %f\n",var);
                             system("pause");
                             break;
-                    case 6: printf("\n\n The Standard Deviation of given data is %f",sqrt(var));
+                    case 6: printf("\n\n The Standard Deviation of given data is %f\n",sqrt(var));
                             system("pause");
                             break;
-                    case 7: printf("\n\n The Coefficient of Standard Variance is %f", (sqrt(var)/mean * 100));
+                    case 7: printf("\n\n The Coefficient of Standard Variance is %f\n", (sqrt(var)/mean * 100));
                             system("pause");
                             break;
                     case 8: PrintAllData(xl,xu,freq,N);
                             break;
-                    case 0: break;
-                    default: printf("\n\n Incorrect Option! Retry!");
+                    case 0: exit(0);
+                    default: printf("\n\n Incorrect Option! Retry!\n");
+                             system("pause");
                              break;
                 }
             }while(ch != 0);
             break;
 
         default:
-            printf("\n\nWrong Choice!! Quitting!");
+            printf("\n\nWrong Choice!! Quitting!\n");
+            system("pause");
             break;
     }
+    return 0;
 }

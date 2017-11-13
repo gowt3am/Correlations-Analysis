@@ -9,21 +9,21 @@
 
 float Mode(int D[], int N)      //NOT CHECKED
 {
-	int i,j,pos,k,count;
-	int s[N],f;
+	int i,j,pos = 0,coun;
+	int s[N];
 	for(i=0;i<N;i++)
     {
-		k=D[i];
-		count=0;
+        s[i] = 0;
+		coun=0;
 		for(j=0;j<N;j++)
         {
 			if(D[i]==D[j])
-			  count++;
+			  coun++;
 		}
-		s[i]=count;
+		s[i]=coun;
 	}
 	int temp=s[0];
-	for(i=0;i<N;i++)
+	for(i=1;i<N;i++)
 	{
 		if(temp<s[i])
 		{
@@ -31,27 +31,26 @@ float Mode(int D[], int N)      //NOT CHECKED
 			pos=i;
 		}
 	}
-	f=D[pos];
-	return f;
+	return D[pos];
 }
 
 float Mode(int xl[], int xu[], int freq[], int N)        //NOT CHECKED
 {
-	int i,max,pos,lm,d1,d2;
-	max=freq[0];
+	int i,maxi,pos,lm,d1,d2;
+	maxi=freq[0];
 	float mode,cw;
 	cw=xu[0]-xl[0];
 	for(i=0;i<N;i++)
     {
-		if(max<freq[i])
+		if(maxi<freq[i])
 		{
-			max=freq[i];
+			maxi=freq[i];
 			pos=i;
 		}
 	}
 	lm=xl[pos];
 	d1=freq[pos]-freq[pos-1];
 	d2=freq[pos]-freq[pos+1];
-	mode=lm+(d1/(d1+d2))*cw;
+	mode=lm + (d1/(d1+d2))*cw;
 	return mode;
 }

@@ -13,7 +13,7 @@ float Median(int D[],int N)
 	if(N%2!=0)
 		median=D[(N-1)/2];
 	else
-		median=(D[N/2]+D[(N/2)+1])/2;
+		median=(D[(N-2)/2]+D[N/2])/2;
 	return median;
 }
 
